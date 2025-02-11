@@ -1,0 +1,49 @@
+---
+import dayjs from "dayjs";
+interface TimelineStep {
+  startDate: dayjs.Dayjs | string;
+  endDate?: dayjs.Dayjs | string;
+  title: string;
+  company: string;
+  description?: string;
+  extra?: string;
+}
+const timelineSteps: TimelineStep[] = [
+  {
+    startDate: dayjs("mar 2025"),
+    title: "Backend Product Engineer",
+    company: "Fizz",
+  },
+  {
+    startDate: dayjs("nov 2023"),
+    title: "CTO & Co-founder",
+    company: "Ambit Labs",
+    description:
+      "Developer of an all-in-one marketing suite for digital entrepreneurs. Built a custom landing page creator, used Cloudflare to deliver customer sites with sub-10ms latency.",
+  },
+];
+
+const formatDate = (date: dayjs.Dayjs | string) =>
+  typeof date === "string" ? date : date.format("MMMM YYYY");
+---
+
+<ol class="relative border-s border-zinc-200 dark:border-zinc-700">
+  {
+    timelineSteps.map((timelineStep) => (
+      <li class="mb-10 ms-4">
+        <div class="absolute w-3 h-3 bg-zinc-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-zinc-900 dark:bg-zinc-700" />
+        <time class="mb-1 text-sm font-normal leading-none text-zinc-400 dark:text-zinc-500">
+          {formatDate(timelineStep.startDate)}
+          {timelineStep.endDate && `- ${formatDate(timelineStep.endDate)}`}
+        </time>
+        <h3 class="text-lg font-semibold text-zinc-900 dark:text-white !mb-1">
+          {timelineStep.title} - {timelineStep.company}
+        </h3>
+        <p class="text-base font-normal text-zinc-500 dark:text-zinc-400">
+          {timelineStep.description}
+        </p>
+        {timelineStep.extra}
+      </li>
+    ))
+  }
+</ol>

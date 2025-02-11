@@ -1,0 +1,30 @@
+---
+const navItems = {
+  "/": {
+    name: "Home",
+  },
+  "/blog": {
+    name: "Blog",
+  },
+};
+---
+    <aside class="mb-16 tracking-tight">
+      <div class="lg:sticky lg:top-20">
+        <nav
+          class="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+          id="nav"
+        >
+          <div class="flex flex-row space-x-4 pr-10">
+            {Object.entries(navItems).map(([path, { name }]) => {
+              return (
+                <a
+                  href={path}
+                >
+                  {name}
+                </a>
+              );
+            })}
+          </div>
+        </nav>
+      </div>
+    </aside>

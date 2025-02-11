@@ -1,0 +1,82 @@
+---
+interface ShieldData {
+  label: string;
+  color: string;
+  icon: string;
+  iconColor?: string;
+}
+
+const shields: ShieldData[] = [
+  {
+    label: "node.js",
+    color: "5FA04E",
+    icon: "nodedotjs",
+  },
+  {
+    label: "nestjs",
+    color: "E0234E",
+    icon: "nestjs",
+  },
+  {
+    label: "postgres",
+    color: "4169E1",
+    icon: "postgresql",
+  },
+  {
+    label: "docker",
+    color: "2496ED",
+    icon: "docker",
+  },
+  {
+    label: "linux",
+    color: "FCC624",
+    icon: "linux",
+    iconColor: "black",
+  },
+  {
+    label: "aws",
+    color: "232F3E",
+    icon: "amazonwebservices",
+  },
+  {
+    label: "terraform",
+    color: "844FBA",
+    icon: "terraform",
+  },
+  {
+    label: "typescript",
+    color: "3178C6",
+    icon: "typescript",
+  },
+  {
+    label: "cloudflare",
+    color: "F38020",
+    icon: "cloudflare",
+  },
+  {
+    label: "next.js",
+    color: "000000",
+    icon: "nextdotjs",
+  },
+  {
+    label: "react",
+    color: "61DAFB",
+    icon: "react",
+  },
+  {
+    label: "tailwind",
+    color: "06B6D4",
+    icon: "tailwindcss",
+  },
+];
+
+const style = "for-the-badge";
+// const style = 'flat-square'
+
+const constructShieldUrl = (shield: ShieldData) =>
+  `https://img.shields.io/badge/${shield.label}-${shield.color}?style=${style}&logo=${shield.icon}&logoColor=${shield.iconColor ?? "white"}`;
+---
+
+<div class="flex flex-wrap gap-2">
+  {shields.map((shield) => <img src={constructShieldUrl(shield)} />)}
+</div>
