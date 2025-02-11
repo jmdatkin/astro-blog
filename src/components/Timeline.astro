@@ -13,6 +13,7 @@ const timelineSteps: TimelineStep[] = [
     startDate: dayjs("mar 2025"),
     title: "Backend Product Engineer",
     company: "Fizz",
+    description: "Currently building product @ Fizz!",
   },
   {
     startDate: dayjs("nov 2023"),
@@ -27,7 +28,7 @@ const formatDate = (date: dayjs.Dayjs | string) =>
   typeof date === "string" ? date : date.format("MMMM YYYY");
 ---
 
-<ol class="relative border-s border-zinc-200 dark:border-zinc-700">
+<ol class="relative mt-4 border-s border-zinc-200 dark:border-zinc-700">
   {
     timelineSteps.map((timelineStep) => (
       <li class="mb-10 ms-4">
