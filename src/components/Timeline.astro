@@ -11,16 +11,17 @@ interface TimelineStep {
 const timelineSteps: TimelineStep[] = [
   {
     startDate: dayjs("mar 2025"),
-    title: "Backend Product Engineer",
+    title: "Product Backend Engineer",
     company: "Fizz",
-    description: "Currently building product @ Fizz 🔥",
+    description:
+      "Currently building authentic digital campus communities for Gen Z @ Fizz 🔥",
   },
   {
     startDate: dayjs("nov 2023"),
     title: "CTO & Co-founder",
     company: "Ambit Labs",
     description:
-      "Developer of an all-in-one marketing suite for digital entrepreneurs. Built a custom landing page creator, used Cloudflare to deliver customer sites with sub-10ms latency.",
+      "Developer of an all-in-one marketing suite for digital entrepreneurs.",
   },
 ];
 
@@ -38,7 +39,8 @@ const formatDate = (date: dayjs.Dayjs | string) =>
           {timelineStep.endDate && `- ${formatDate(timelineStep.endDate)}`}
         </time>
         <h3 class="text-lg font-semibold text-zinc-900 dark:text-white !mb-1">
-          {timelineStep.title} - {timelineStep.company}
+          {timelineStep.title}
+          <span class="font-normal"> - {timelineStep.company}</span>
         </h3>
         <p class="text-base font-normal text-zinc-500 dark:text-zinc-400">
           {timelineStep.description}
